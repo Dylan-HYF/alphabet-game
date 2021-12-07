@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>ZIM - Code Creativity</title>
+    <title>Group project</title>
 
     <!-- zimjs.com - JavaScript Canvas Framework -->
     <script src="https://zimjs.org/cdn/nft/00/zim.js"></script>
@@ -20,15 +20,66 @@
             // put your code here
             // radius is 50, diameter is 100
             const top = new Circle(50, blue)
-                .pos(rand(100, 200), rand(50, 100))
-            const mid = new Circle(50, green)
-                .pos(rand(300, 400), rand(300, 350))
-            const bot = new Circle(50, yellow)
-                .pos(rand(100, 200), rand(500, 550))
+                .pos(rand(100, 200), rand(50, 100)).drag()
             new Label({
                 text: 'A',
                 color: white
             }).center(top)
+            const mid = new Circle(50, green)
+                .pos(rand(300, 400), rand(300, 350)).drag()
+            new Label({
+                text: 'B',
+                color: white
+            }).center(mid)
+            const bot = new Circle(50, yellow)
+                .pos(rand(100, 200), rand(500, 550)).drag()
+            new Label({
+                text: 'C',
+                color: white
+            }).center(bot)
+            const rightTop = new Circle(50, blue)
+                .pos(rand(650, 750), rand(50, 100)).drag()
+            const rightMid = new Circle(50, blue)
+                .pos(rand(550, 650), rand(300, 350)).drag()
+            const rightBot = new Circle(50, blue)
+                .pos(rand(650, 750), rand(500, 550)).drag()
+            rightTop.on('pressup', (e) => {
+                if (top.hitTestCircles(e.target, -20) && stage.numChildren == 6) {
+                    top.removeFrom()
+                    e.target.removeFrom()
+                    stage.update()
+                } else {
+                    e.target.animate({
+                        props: { x: rand(650, 750), y: rand(50, 100) }
+                    })
+                }
+                console.log(stage.numChildren)
+            })
+            rightMid.on('pressup', (e) => {
+                if (mid.hitTestCircles(e.target, -20) && stage.numChildren == 4) {
+                    mid.removeFrom()
+                    e.target.removeFrom()
+                    stage.update()
+                } else {
+                    e.target.animate({
+                        props: { x: rand(550, 650), y: rand(300, 350) }
+                    })
+                }
+            })
+            rightBot.on('pressup', (e) => {
+                if (bot.hitTestCircles(e.target, -20) && stage.numChildren == 2) {
+                    bot.removeFrom()
+                    e.target.removeFrom()
+                    stage.update()
+                } else {
+                    e.target.animate({
+                        props: { x: rand(650, 750), y: rand(500, 550) }
+                    })
+                }
+            })
+            if (stage.numChildren == 0) {
+                console.log(0)
+            }
             stage.update(); // needed to view changes
         });
 
