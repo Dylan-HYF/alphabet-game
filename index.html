@@ -18,7 +18,7 @@
             const stage = frame.stage;
             let stageW = frame.width;
             let stageH = frame.height;
-
+            STYLE = { font: "BROMO" }
             // put your code here
             // radius is 50, diameter is 100
             const top = new Circle(50, blue)
@@ -41,9 +41,39 @@
             }).center(bot)
             const rightTop = new Circle(50, blue)
                 .pos(rand(650, 750), rand(50, 100)).drag()
-            const rightMid = new Circle(50, blue)
+            rightTop.on('click', () => {
+                asset('Alligator.mp3').play()
+            })
+            const A1 = asset('A_a.png').sca(.5).center(rightTop).setMask(rightTop).animate({
+                props: { alpha: 0 },
+                time: 5,
+                // loop: true,
+                call: () => {
+                    rightTop.removeAllEventListeners('click')
+                    rightTop.on('click', () => {
+                        asset('Apple.mp3').play()
+                    })
+                    const A2 = asset('F_a.png').sca(.5).center(rightTop).setMask(rightTop).animate({
+                        props: { alpha: 0 },
+                        time: 5,
+                        call: () => {
+                            const A3 = asset('O_a.png').sca(.5).center(rightTop).setMask(rightTop)
+                            rightTop.removeAllEventListeners('click')
+
+                            rightTop.on('click', () => {
+                                asset('Airplane.mp3').play()
+                            })
+                            // rightTop.removeFrom()
+                        }
+                    })
+                }
+            })
+            // const A2 = asset('F_a.png').sca(.5).center(rightTop).setMask(rightTop)
+            // const A3 = asset('O_a.png').sca(.5).center(rightTop).setMask(rightTop)
+
+            const rightMid = new Circle(50, green)
                 .pos(rand(550, 650), rand(300, 350)).drag()
-            const rightBot = new Circle(50, blue)
+            const rightBot = new Circle(50, yellow)
                 .pos(rand(650, 750), rand(500, 550)).drag()
             rightTop.on('pressup', (e) => {
                 if (top.hitTestCircles(e.target, -20) && stage.numChildren == 6) {
