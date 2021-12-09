@@ -9,9 +9,11 @@
     <script src="https://zimjs.org/cdn/nft/00/zim.js"></script>
 
     <script>
+        const path = "assets/";
+        const assets = ["A_a.png", "A_b.png", "A_c.png", "A_d.png", "A_e.png", "A_f.png", "A_g.png", "A_h.png", "A_i.png", "A_j.png", "A_k.png", "A_l.png", "A_m.png", "A_n.png", "A_o.png", "A_p.png", "A_q.png", "A_r.png", "A_s.png", "A_t.png", "A_u.png", "A_v.png", "A_w.png", "A_x.png", "A_y.png", "A_z.png", "Airplane.mp3", "Alligator.mp3", "Apple.mp3", "AusionPersonalUse.otf", "b0.mp3", "Ball.mp3", "Banana.mp3", "Bee.mp3", "BROMO.otf", "Cat.mp3", "Chair.mp3", "Cherry.mp3", "click.mp3", "Dog.mp3", "Doll.mp3", "DragonFruit.mp3", "Egg.mp3", "ElderBerry.mp3", "Elephant.mp3", "F_a.png", "F_b.png", "F_c.png", "F_d.png", "F_e.png", "F_f.png", "F_g.png", "F_h.png", "F_i.png", "F_j.png", "F_k.png", "F_l.png", "F_m.png", "F_n.png", "F_o.png", "F_p.png", "F_q.png", "F_r.png", "F_s.png", "F_t.png", "F_u.png", "F_v.png", "F_w.png", "F_x.png", "F_y.png", "F_z.png", "Fig.mp3", "FireWood.mp3", "Fox.mp3", "Giraffe.mp3", "GrapeFruit.mp3", "Gumballs.mp3", "Helicopter.mp3", "Hippo.mp3", "HoneyDew.mp3", "IceCream.mp3", "Iguana.mp3", "IndianApple.mp3", "Jam.mp3", "Jellyfish.mp3", "Jujube.mp3", "Kangaroo.mp3", "Keys.mp3", "Kiwi.mp3", "Leaves.mp3", "Lemon.mp3", "Lion.mp3", "Mailbox.mp3", "Mango.mp3", "Monkey.mp3", "Nectarine.mp3", "Nest.mp3", "Nightingale.mp3", "O_a.png", "O_b.png", "O_c.png", "O_d.png", "O_e.png", "O_f.png", "O_g.png", "O_h.png", "O_i.png", "O_j.png", "O_k.png", "O_l.png", "O_m.png", "O_n.png", "O_o.png", "O_p.png", "O_q.png", "O_r.png", "O_s.png", "O_t.png", "O_u.png", "O_v.png", "O_w.png", "O_x.png", "O_y.png", "O_z.png", "Onion.mp3", "Orange.mp3", "Owl.mp3", "Penguin.mp3", "Pie.mp3", "Pineapple.mp3", "Quail.mp3", "Quince.mp3", "Quiver.mp3", "Racoon.mp3", "Raspberry.mp3", "Reuben.otf", "Robots.mp3", "Seal.mp3", "shake.mp3", "Ship.mp3", "StrawBerry.mp3", "Tangerine.mp3", "Teapot.mp3", "Turtle.mp3", "UgliFruit.mp3", "Umbrella.mp3", "Unicorn.mp3", "Van.mp3", "Velvet.mp3", "Vulture.mp3", "WaterMelon.mp3", "Whale.mp3", "Windmill.mp3", "X-RayFish.mp3", "Ximania.mp3", "Xylophone.mp3", "Yak.mp3", "Yarn.mp3", "YoungBerry.mp3", "Zapote.mp3", "Zebra.mp3", "Zipper.mp3"];
 
         // See Docs under Frame for FIT, FILL, FULL, and TAG scaling modes
-        const frame = new Frame(FIT, 1024, 768, light, dark);
+        const frame = new Frame(FIT, 1024, 768, light, dark, assets, path);
         frame.on("ready", () => {
             const stage = frame.stage;
             let stageW = frame.width;
@@ -55,6 +57,18 @@
                 }
                 console.log(stage.numChildren)
             })
+            top.on('pressup', (e) => {
+                if (rightTop.hitTestCircles(e.target, -20) && stage.numChildren == 6) {
+                    rightTop.removeFrom()
+                    e.target.removeFrom()
+                    stage.update()
+                } else {
+                    e.target.animate({
+                        props: { x: rand(100, 200), y: rand(50, 100) }
+                    })
+                }
+                console.log(stage.numChildren)
+            })
             rightMid.on('pressup', (e) => {
                 if (mid.hitTestCircles(e.target, -20) && stage.numChildren == 4) {
                     mid.removeFrom()
@@ -66,6 +80,17 @@
                     })
                 }
             })
+            mid.on('pressup', (e) => {
+                if (rightMid.hitTestCircles(e.target, -20) && stage.numChildren == 4) {
+                    rightMid.removeFrom()
+                    e.target.removeFrom()
+                    stage.update()
+                } else {
+                    e.target.animate({
+                        props: { x: rand(300, 400), y: rand(300, 350) }
+                    })
+                }
+            })
             rightBot.on('pressup', (e) => {
                 if (bot.hitTestCircles(e.target, -20) && stage.numChildren == 2) {
                     bot.removeFrom()
@@ -74,6 +99,17 @@
                 } else {
                     e.target.animate({
                         props: { x: rand(650, 750), y: rand(500, 550) }
+                    })
+                }
+            })
+            bot.on('pressup', (e) => {
+                if (rightBot.hitTestCircles(e.target, -20) && stage.numChildren == 2) {
+                    rightBot.removeFrom()
+                    e.target.removeFrom()
+                    stage.update()
+                } else {
+                    e.target.animate({
+                        props: { x: rand(100, 200), y: rand(500, 550) }
                     })
                 }
             })
