@@ -21,130 +21,228 @@
             STYLE = { font: "BROMO" }
             // put your code here
             // radius is 50, diameter is 100
-            const top = new Circle(50, blue)
-                .pos(rand(100, 200), rand(50, 100)).drag()
-            new Label({
-                text: 'A',
-                color: white
-            }).center(top)
-            const mid = new Circle(50, green)
-                .pos(rand(300, 400), rand(300, 350)).drag()
-            new Label({
-                text: 'B',
-                color: white
-            }).center(mid)
-            const bot = new Circle(50, yellow)
-                .pos(rand(100, 200), rand(500, 550)).drag()
-            new Label({
-                text: 'C',
-                color: white
-            }).center(bot)
-            const rightTop = new Circle(50, blue)
-                .pos(rand(650, 750), rand(50, 100)).drag()
-            rightTop.on('click', () => {
-                asset('Alligator.mp3').play()
-            })
-            const A1 = asset('A_a.png').sca(.5).center(rightTop).setMask(rightTop).animate({
-                props: { alpha: 0 },
-                time: 5,
-                // loop: true,
-                call: () => {
-                    rightTop.removeAllEventListeners('click')
-                    rightTop.on('click', () => {
-                        asset('Apple.mp3').play()
-                    })
-                    const A2 = asset('F_a.png').sca(.5).center(rightTop).setMask(rightTop).animate({
-                        props: { alpha: 0 },
-                        time: 5,
-                        call: () => {
-                            const A3 = asset('O_a.png').sca(.5).center(rightTop).setMask(rightTop)
-                            rightTop.removeAllEventListeners('click')
+            let top
+            let mid
+            let bot
+            let count = 0
 
-                            rightTop.on('click', () => {
-                                asset('Airplane.mp3').play()
-                            })
-                            // rightTop.removeFrom()
-                        }
-                    })
-                }
-            })
-            // const A2 = asset('F_a.png').sca(.5).center(rightTop).setMask(rightTop)
-            // const A3 = asset('O_a.png').sca(.5).center(rightTop).setMask(rightTop)
+            let rightTop
+            let rightMid
+            let rightBot
+            left('A', 'B', 'C')
+            function left(a, b, c) {
+                top = new Circle(50, blue)
+                    .pos(rand(100, 200), rand(50, 100)).drag()
+                new Label({
+                    text: a,
+                    color: white
+                }).center(top)
+                mid = new Circle(50, green)
+                    .pos(rand(300, 400), rand(300, 350)).drag()
+                new Label({
+                    text: b,
+                    color: white
+                }).center(mid)
+                bot = new Circle(50, yellow)
+                    .pos(rand(100, 200), rand(500, 550)).drag()
+                new Label({
+                    text: c,
+                    color: white
+                }).center(bot)
 
-            const rightMid = new Circle(50, green)
-                .pos(rand(550, 650), rand(300, 350)).drag()
-            const rightBot = new Circle(50, yellow)
-                .pos(rand(650, 750), rand(500, 550)).drag()
-            rightTop.on('pressup', (e) => {
-                if (top.hitTestCircles(e.target, -20) && stage.numChildren == 6) {
-                    top.removeFrom()
-                    e.target.removeFrom()
-                    stage.update()
-                } else {
-                    e.target.animate({
-                        props: { x: rand(650, 750), y: rand(50, 100) }
-                    })
+                rightContainers()
+
+                pressHandler(rightTop, top, rand(650, 750), rand(50, 100), 6)
+                pressHandler(top, rightTop, rand(100, 200), rand(50, 100), 6)
+
+                pressHandler(rightMid, mid, rand(550, 650), rand(300, 350), 4)
+                pressHandler(mid, rightMid, rand(300, 400), rand(300, 350), 4)
+
+                pressHandler(rightBot, bot, rand(650, 750), rand(500, 550), 2)
+                pressHandler(bot, rightBot, rand(100, 200), rand(500, 550), 2)
+            }
+            function rightContainers() {
+                rightTop = new Circle(50, blue)
+                    .pos(rand(650, 750), rand(50, 100)).drag()
+                rightMid = new Circle(50, green)
+                    .pos(rand(550, 650), rand(300, 350)).drag()
+                rightBot = new Circle(50, yellow)
+                    .pos(rand(650, 750), rand(500, 550)).drag()
+            }
+            function pressHandler(container, target, x, y, children) {
+                container.on('pressup', (e) => {
+                    if (target.hitTestCircles(e.target, -20) && stage.numChildren == children) {
+                        target.removeFrom()
+                        e.target.removeFrom()
+                        stage.update()
+                        // console.log(stage.numChildren)
+                        count++
+                        // console.log(count)
+                        switchLeft(count)
+                    } else {
+                        e.target.animate({
+                            props: { x: x, y: y }
+                        })
+                    }
+
+                })
+
+
+            }
+            // function removeLeft() {
+            //     top.removeFrom()
+            //     mid.removeFrom()
+            //     bot.removeFrom()
+            // }
+            // function right(a, b, c) {
+
+            // }
+            function right(container, music1, music2, music3, letter) {
+                container.on('click', () => {
+                    asset(`${music1}.mp3`).play()
+                })
+                const A1 = asset(`A_${letter}.png`).sca(.6).center(container).setMask(container).animate({
+                    props: { alpha: 0 },
+                    time: 5,
+                    // loop: true,
+                    call: () => {
+                        container.removeAllEventListeners('click')
+                        container.on('click', () => {
+                            asset(`${music2}.mp3`).play()
+                        })
+                        const A2 = asset(`F_${letter}.png`).sca(.6).center(container).setMask(container).animate({
+                            props: { alpha: 0 },
+                            time: 5,
+                            call: () => {
+                                const A3 = asset(`O_${letter}.png`).sca(.6).center(container).setMask(container)
+                                container.removeAllEventListeners('click')
+
+                                container.on('click', () => {
+                                    asset(`${music3}.mp3`).play()
+                                })
+                                // rightTop.removeFrom()
+                            }
+                        })
+                    }
+                })
+            }
+            right(rightTop, 'Alligator', 'Apple', 'Airplane', 'a')
+            right(rightMid, 'Bee', 'Banana', 'Ball', 'b')
+            right(rightBot, 'Cat', 'Cherry', 'Chair', 'c')
+            // rightTop.on('pressup', (e) => {
+            //     if (top.hitTestCircles(e.target, -20) && stage.numChildren == 6) {
+            //         top.removeFrom()
+            //         e.target.removeFrom()
+            //         stage.update()
+            //     } else {
+            //         e.target.animate({
+            //             props: { x: rand(650, 750), y: rand(50, 100) }
+            //         })
+            //     }
+            //     console.log(stage.numChildren)
+            // })
+            // top.on('pressup', (e) => {
+            //     if (rightTop.hitTestCircles(e.target, -20) && stage.numChildren == 6) {
+            //         rightTop.removeFrom()
+            //         e.target.removeFrom()
+            //         stage.update()
+            //     } else {
+            //         e.target.animate({
+            //             props: { x: rand(100, 200), y: rand(50, 100) }
+            //         })
+            //     }
+            //     console.log(stage.numChildren)
+            // })
+
+            // rightMid.on('pressup', (e) => {
+            //     if (mid.hitTestCircles(e.target, -20) && stage.numChildren == 4) {
+            //         mid.removeFrom()
+            //         e.target.removeFrom()
+            //         stage.update()
+            //     } else {
+            //         e.target.animate({
+            //             props: { x: rand(550, 650), y: rand(300, 350) }
+            //         })
+            //     }
+            // })
+            // mid.on('pressup', (e) => {
+            //     if (rightMid.hitTestCircles(e.target, -20) && stage.numChildren == 4) {
+            //         rightMid.removeFrom()
+            //         e.target.removeFrom()
+            //         stage.update()
+            //     } else {
+            //         e.target.animate({
+            //             props: { x: rand(300, 400), y: rand(300, 350) }
+            //         })
+            //     }
+            // })
+
+            // rightBot.on('pressup', (e) => {
+            //     if (bot.hitTestCircles(e.target, -20) && stage.numChildren == 2) {
+            //         bot.removeFrom()
+            //         e.target.removeFrom()
+            //         stage.update()
+            //     } else {
+            //         e.target.animate({
+            //             props: { x: rand(650, 750), y: rand(500, 550) }
+            //         })
+            //     }
+            // })
+            // bot.on('pressup', (e) => {
+            //     if (rightBot.hitTestCircles(e.target, -20) && stage.numChildren == 2) {
+            //         rightBot.removeFrom()
+            //         e.target.removeFrom()
+            //         stage.update()
+            //         console.log(stage.numChildren)
+            //         left('D', 'E', 'F')
+            //     } else {
+            //         e.target.animate({
+            //             props: { x: rand(100, 200), y: rand(500, 550) }
+            //         })
+            //     }
+            // })
+            // if (stage.numChildren == 0) {
+            //     console.log(0)
+            // }
+            function switchLeft(count) {
+                switch (count) {
+                    case 3:
+                        left('D', 'E', 'F')
+                        right(rightTop, 'Dog', 'DragonFruit', 'Doll', 'd')
+                        right(rightMid, 'Elephant', 'ElderBerry', 'Egg', 'e')
+                        right(rightBot, 'Fox', 'Fig', 'FireWood', 'f')
+                        break
+                    case 6:
+                        left('G', 'H', 'I')
+                        right(rightTop, 'Giraffe', 'GrapeFruit', 'Gumballs', 'g')
+                        right(rightMid, 'Hippo', 'HoneyDew', 'Helicopter', 'h')
+                        right(rightBot, 'Iguana', 'IndianApple', 'IceCream', 'i')
+                        break
+                    case 9:
+                        left('J', 'K', 'L')
+                        right(rightTop, 'Jellyfish', 'Jujube', 'Jam', 'j')
+                        right(rightMid, 'Kangaroo', 'Kiwi', 'Keys', 'k')
+                        right(rightBot, 'Lion', 'Lemon', 'Leaves', 'l')
+                        break
+                    case 12:
+                        left('M', 'N', 'O')
+                        right(rightTop, 'Monkey', 'Mango', 'Mailbox', 'm')
+                        right(rightMid, 'Nightingale', 'Nectarine', 'Nest', 'n')
+                        right(rightBot, 'Owl', 'Orange', 'Onion', 'o')
+                        break
+                    case 15:
+                        left('P', 'Q', 'R')
+                        right(rightTop, 'Penguin', 'Pineapple', 'Pie', 'p')
+                        right(rightMid, 'Quail', 'Quince', 'Quiver', 'q')
+                        right(rightBot, 'Racoon', 'Raspberry', 'Robots', 'r')
+                        break
+                    case 18:
+                        left('S', 'T', 'U')
+                        right(rightTop, 'Seal', 'StrawBerry', 'Ship', 's')
+                        right(rightMid, 'Turtle', 'Tangerine', 'Teapot', 't')
+                        right(rightBot, 'Unicorn', 'UgliFruit', 'Umbrella', 'u')
+                        break
                 }
-                console.log(stage.numChildren)
-            })
-            top.on('pressup', (e) => {
-                if (rightTop.hitTestCircles(e.target, -20) && stage.numChildren == 6) {
-                    rightTop.removeFrom()
-                    e.target.removeFrom()
-                    stage.update()
-                } else {
-                    e.target.animate({
-                        props: { x: rand(100, 200), y: rand(50, 100) }
-                    })
-                }
-                console.log(stage.numChildren)
-            })
-            rightMid.on('pressup', (e) => {
-                if (mid.hitTestCircles(e.target, -20) && stage.numChildren == 4) {
-                    mid.removeFrom()
-                    e.target.removeFrom()
-                    stage.update()
-                } else {
-                    e.target.animate({
-                        props: { x: rand(550, 650), y: rand(300, 350) }
-                    })
-                }
-            })
-            mid.on('pressup', (e) => {
-                if (rightMid.hitTestCircles(e.target, -20) && stage.numChildren == 4) {
-                    rightMid.removeFrom()
-                    e.target.removeFrom()
-                    stage.update()
-                } else {
-                    e.target.animate({
-                        props: { x: rand(300, 400), y: rand(300, 350) }
-                    })
-                }
-            })
-            rightBot.on('pressup', (e) => {
-                if (bot.hitTestCircles(e.target, -20) && stage.numChildren == 2) {
-                    bot.removeFrom()
-                    e.target.removeFrom()
-                    stage.update()
-                } else {
-                    e.target.animate({
-                        props: { x: rand(650, 750), y: rand(500, 550) }
-                    })
-                }
-            })
-            bot.on('pressup', (e) => {
-                if (rightBot.hitTestCircles(e.target, -20) && stage.numChildren == 2) {
-                    rightBot.removeFrom()
-                    e.target.removeFrom()
-                    stage.update()
-                } else {
-                    e.target.animate({
-                        props: { x: rand(100, 200), y: rand(500, 550) }
-                    })
-                }
-            })
-            if (stage.numChildren == 0) {
-                console.log(0)
             }
             stage.update(); // needed to view changes
         });
