@@ -3,17 +3,20 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Group project</title>
-
+    <title>Alphabet Match</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="favicon_io/site.webmanifest">
     <!-- zimjs.com - JavaScript Canvas Framework -->
     <script src="https://zimjs.org/cdn/nft/00/zim.js"></script>
 
     <script>
         const path = "assets/";
-        const assets = ["A_a.png", "A_b.png", "A_c.png", "A_d.png", "A_e.png", "A_f.png", "A_g.png", "A_h.png", "A_i.png", "A_j.png", "A_k.png", "A_l.png", "A_m.png", "A_n.png", "A_o.png", "A_p.png", "A_q.png", "A_r.png", "A_s.png", "A_t.png", "A_u.png", "A_v.png", "A_w.png", "A_x.png", "A_y.png", "A_z.png", "Airplane.mp3", "Alligator.mp3", "Apple.mp3", "AusionPersonalUse.otf", "b0.mp3", "Ball.mp3", "Banana.mp3", "Bee.mp3", "BROMO.otf", "Cat.mp3", "Chair.mp3", "Cherry.mp3", "click.mp3", "Dog.mp3", "Doll.mp3", "DragonFruit.mp3", "Egg.mp3", "ElderBerry.mp3", "Elephant.mp3", "F_a.png", "F_b.png", "F_c.png", "F_d.png", "F_e.png", "F_f.png", "F_g.png", "F_h.png", "F_i.png", "F_j.png", "F_k.png", "F_l.png", "F_m.png", "F_n.png", "F_o.png", "F_p.png", "F_q.png", "F_r.png", "F_s.png", "F_t.png", "F_u.png", "F_v.png", "F_w.png", "F_x.png", "F_y.png", "F_z.png", "Fig.mp3", "FireWood.mp3", "Fox.mp3", "Giraffe.mp3", "GrapeFruit.mp3", "Gumballs.mp3", "Helicopter.mp3", "Hippo.mp3", "HoneyDew.mp3", "IceCream.mp3", "Iguana.mp3", "IndianApple.mp3", "Jam.mp3", "Jellyfish.mp3", "Jujube.mp3", "Kangaroo.mp3", "Keys.mp3", "Kiwi.mp3", "Leaves.mp3", "Lemon.mp3", "Lion.mp3", "Mailbox.mp3", "Mango.mp3", "Monkey.mp3", "Nectarine.mp3", "Nest.mp3", "Nightingale.mp3", "O_a.png", "O_b.png", "O_c.png", "O_d.png", "O_e.png", "O_f.png", "O_g.png", "O_h.png", "O_i.png", "O_j.png", "O_k.png", "O_l.png", "O_m.png", "O_n.png", "O_o.png", "O_p.png", "O_q.png", "O_r.png", "O_s.png", "O_t.png", "O_u.png", "O_v.png", "O_w.png", "O_x.png", "O_y.png", "O_z.png", "Onion.mp3", "Orange.mp3", "Owl.mp3", "Penguin.mp3", "Pie.mp3", "Pineapple.mp3", "Quail.mp3", "Quince.mp3", "Quiver.mp3", "Racoon.mp3", "Raspberry.mp3", "Reuben.otf", "Robots.mp3", "Seal.mp3", "shake.mp3", "Ship.mp3", "StrawBerry.mp3", "Tangerine.mp3", "Teapot.mp3", "Turtle.mp3", "UgliFruit.mp3", "Umbrella.mp3", "Unicorn.mp3", "Van.mp3", "Velvet.mp3", "Vulture.mp3", "WaterMelon.mp3", "Whale.mp3", "Windmill.mp3", "X-RayFish.mp3", "Ximania.mp3", "Xylophone.mp3", "Yak.mp3", "Yarn.mp3", "YoungBerry.mp3", "Zapote.mp3", "Zebra.mp3", "Zipper.mp3",{font:"AusionPersonalUse", src:"AusionPersonalUse.otf"},{font:"BROMO", src:"BROMO.otf"}];
+        const assets = ["A_a.png", "A_b.png", "A_c.png", "A_d.png", "A_e.png", "A_f.png", "A_g.png", "A_h.png", "A_i.png", "A_j.png", "A_k.png", "A_l.png", "A_m.png", "A_n.png", "A_o.png", "A_p.png", "A_q.png", "A_r.png", "A_s.png", "A_t.png", "A_u.png", "A_v.png", "A_w.png", "A_x.png", "A_y.png", "A_z.png", "Airplane.mp3", "Alligator.mp3", "Apple.mp3", "AusionPersonalUse.otf", "b0.mp3", "Ball.mp3", "Banana.mp3", "Bee.mp3", "BROMO.otf", "Cat.mp3", "Chair.mp3", "Cherry.mp3", "click.mp3", "Dog.mp3", "Doll.mp3", "DragonFruit.mp3", "Egg.mp3", "ElderBerry.mp3", "Elephant.mp3", "F_a.png", "F_b.png", "F_c.png", "F_d.png", "F_e.png", "F_f.png", "F_g.png", "F_h.png", "F_i.png", "F_j.png", "F_k.png", "F_l.png", "F_m.png", "F_n.png", "F_o.png", "F_p.png", "F_q.png", "F_r.png", "F_s.png", "F_t.png", "F_u.png", "F_v.png", "F_w.png", "F_x.png", "F_y.png", "F_z.png", "Fig.mp3", "FireWood.mp3", "Fox.mp3", "Giraffe.mp3", "GrapeFruit.mp3", "Gumballs.mp3", "Helicopter.mp3", "Hippo.mp3", "HoneyDew.mp3", "IceCream.mp3", "Iguana.mp3", "IndianApple.mp3", "Jam.mp3", "Jellyfish.mp3", "Jujube.mp3", "Kangaroo.mp3", "Keys.mp3", "Kiwi.mp3", "Leaves.mp3", "Lemon.mp3", "Lion.mp3", "Mailbox.mp3", "Mango.mp3", "Monkey.mp3", "Nectarine.mp3", "Nest.mp3", "Nightingale.mp3", "O_a.png", "O_b.png", "O_c.png", "O_d.png", "O_e.png", "O_f.png", "O_g.png", "O_h.png", "O_i.png", "O_j.png", "O_k.png", "O_l.png", "O_m.png", "O_n.png", "O_o.png", "O_p.png", "O_q.png", "O_r.png", "O_s.png", "O_t.png", "O_u.png", "O_v.png", "O_w.png", "O_x.png", "O_y.png", "O_z.png", "Onion.mp3", "Orange.mp3", "Owl.mp3", "Penguin.mp3", "Pie.mp3", "Pineapple.mp3", "Quail.mp3", "Quince.mp3", "Quiver.mp3", "Racoon.mp3", "Raspberry.mp3", "Reuben.otf", "Robots.mp3", "Seal.mp3", "shake.mp3", "Ship.mp3", "StrawBerry.mp3", "Tangerine.mp3", "Teapot.mp3", "Turtle.mp3", "UgliFruit.mp3", "Umbrella.mp3", "Unicorn.mp3", "Van.mp3", "Velvet.mp3", "Vulture.mp3", "WaterMelon.mp3", "Whale.mp3", "Windmill.mp3", "X-RayFish.mp3", "Ximania.mp3", "Xylophone.mp3", "Yak.mp3", "Yarn.mp3", "YoungBerry.mp3", "Zapote.mp3", "Zebra.mp3", "Zipper.mp3", { font: "AusionPersonalUse", src: "AusionPersonalUse.otf" }, { font: "BROMO", src: "BROMO.otf" }, 'bg.mpeg', 'speaker.png', 'mute.png'];
 
         // See Docs under Frame for FIT, FILL, FULL, and TAG scaling modes
-        const frame = new Frame(FIT, 1024, 768, purple, dark, assets, path,new Waiter({backgroundColor:red}));;
+        const frame = new Frame(FIT, 1024, 768, purple, dark, assets, path, new Waiter({ backgroundColor: red }));
         frame.on("ready", () => {
             const stage = frame.stage;
             let stageW = frame.width;
@@ -22,322 +25,345 @@
 
 
 
-                STYLE = {font:"AusionPersonalUse"}
-                const intro = new Pane(stageW+50, 200, "Enter Alphabet Match!", red, white).show();
 
-                const title = new LabelLetters({
-                    label:new Label({
-                        text:"Match the Pictures with the Aplhabet!",
-                        size:50,
-                        color:yellow,
-                        font:"BROMO"
-                    })
+            STYLE = { font: "AusionPersonalUse" }
+            const intro = new Pane(stageW + 50, 200, "Enter Alphabet Match!", red, white).show();
+
+            const title = new LabelLetters({
+                label: new Label({
+                    text: "Match the Pictures with the Aplhabet!",
+                    size: 50,
+                    color: yellow,
+                    font: "BROMO"
                 })
-                    .pos(0, 50, CENTER)
-                    .animate({
-                        from:true,
-                        time:.4,
-                        ease:"backOut",
-                        props:{y:-200},
-                        sequence:.05,
+            })
+                .pos(0, 50, CENTER)
+                .animate({
+                    from: true,
+                    time: .4,
+                    ease: "backOut",
+                    props: { y: -200 },
+                    sequence: .05,
 
-                    });
-
-
-
-                intro.on("close", App);
+                });
 
 
 
-
-
-
-
-function App(){
-
-
-stage.removeAllChildren();
-
-
-STYLE = { font: "BROMO" }
+            intro.on("close", app);
 
 
 
 
 
-            // put your code herez
-            // radius is 50, diameter is 100
-            let top
-            let mid
-            let bot
-            let count = 0
 
-            let rightTop
-            let rightMid
-            let rightBot
-            left('A', 'B', 'C')
-            function left(a, b, c) {
-                top = new Circle(50, blue)
-                    .pos(rand(100, 200), rand(50, 100)).drag()
-                new Label({
-                    text: a,
-                    color: white
-                }).center(top)
-                mid = new Circle(50, green)
-                    .pos(rand(300, 400), rand(300, 350)).drag()
-                new Label({
-                    text: b,
-                    color: white
-                }).center(mid)
-                bot = new Circle(50, yellow)
-                    .pos(rand(100, 200), rand(500, 550)).drag()
-                new Label({
-                    text: c,
-                    color: white
-                }).center(bot)
 
-                rightContainers()
+            function app() {
 
-                pressHandler(rightTop, top, rand(650, 750), rand(50, 100), 6)
-                pressHandler(top, rightTop, rand(100, 200), rand(50, 100), 6)
+                const bgMusic = asset('bg.mpeg').play(null, true)
+                stage.removeAllChildren();
 
-                pressHandler(rightMid, mid, rand(550, 650), rand(300, 350), 4)
-                pressHandler(mid, rightMid, rand(300, 400), rand(300, 350), 4)
+                STYLE = { font: "BROMO" }
+                const speaker = new Container().pos(50, 20, RIGHT, TOP)
+                const speakerIcon = asset('speaker.png').addTo(speaker).sca(.5).cur()
+                const mute = asset('mute.png').sca(.5).cur()
 
-                pressHandler(rightBot, bot, rand(650, 750), rand(500, 550), 2)
-                pressHandler(bot, rightBot, rand(100, 200), rand(500, 550), 2)
-            }
-            function rightContainers() {
-                rightTop = new Circle(50, blue)
-                    .pos(rand(650, 750), rand(50, 100)).drag()
-                rightMid = new Circle(50, green)
-                    .pos(rand(550, 650), rand(300, 350)).drag()
-                rightBot = new Circle(50, yellow)
-                    .pos(rand(650, 750), rand(500, 550)).drag()
-            }
-            function pressHandler(container, target, x, y, children) {
-                container.on('pressup', (e) => {
-                    if (target.hitTestCircles(e.target, -20) && stage.numChildren == children) {
-                        target.removeFrom()
-                        e.target.removeFrom()
-                        stage.update()
-                        // console.log(stage.numChildren)
-                        count++
-                        // console.log(count)
-                        switchLeft(count)
+                let flag = true
+                speaker.on('click', () => {
+                    // zog(1)
+                    if (flag) {
+                        speakerIcon.removeFrom()
+                        mute.addTo(speaker)
                     } else {
-                        e.target.animate({
-                            props: { x: x, y: y }
-                        })
+                        mute.removeFrom()
+                        speakerIcon.addTo(speaker)
                     }
 
+                    bgMusic.paused = flag
+                    flag = !flag
                 })
+                zog(stage.numChildren)
 
 
-            }
-            // function removeLeft() {
-            //     top.removeFrom()
-            //     mid.removeFrom()
-            //     bot.removeFrom()
-            // }
-            // function right(a, b, c) {
 
-            // }
-            function right(container, music1, music2, music3, letter) {
-                container.on('click', () => {
-                    asset(`${music1}.mp3`).play()
-                })
-                const A1 = asset(`A_${letter}.png`).sca(.6).center(container).setMask(container).animate({
-                    props: { alpha: 0 },
-                    time: 5,
-                    // loop: true,
-                    call: () => {
-                        container.removeAllEventListeners('click')
-                        container.on('click', () => {
-                            asset(`${music2}.mp3`).play()
-                        })
-                        const A2 = asset(`F_${letter}.png`).sca(.6).center(container).setMask(container).animate({
-                            props: { alpha: 0 },
-                            time: 5,
-                            call: () => {
-                                const A3 = asset(`O_${letter}.png`).sca(.6).center(container).setMask(container)
-                                container.removeAllEventListeners('click')
 
-                                container.on('click', () => {
-                                    asset(`${music3}.mp3`).play()
-                                })
-                                // rightTop.removeFrom()
-                            }
-                        })
-                    }
-                })
-            }
-            right(rightTop, 'Alligator', 'Apple', 'Airplane', 'a')
-            right(rightMid, 'Bee', 'Banana', 'Ball', 'b')
-            right(rightBot, 'Cat', 'Cherry', 'Chair', 'c')
-            // rightTop.on('pressup', (e) => {
-            //     if (top.hitTestCircles(e.target, -20) && stage.numChildren == 6) {
-            //         top.removeFrom()
-            //         e.target.removeFrom()
-            //         stage.update()
-            //     } else {
-            //         e.target.animate({
-            //             props: { x: rand(650, 750), y: rand(50, 100) }
-            //         })
-            //     }
-            //     console.log(stage.numChildren)
-            // })
-            // top.on('pressup', (e) => {
-            //     if (rightTop.hitTestCircles(e.target, -20) && stage.numChildren == 6) {
-            //         rightTop.removeFrom()
-            //         e.target.removeFrom()
-            //         stage.update()
-            //     } else {
-            //         e.target.animate({
-            //             props: { x: rand(100, 200), y: rand(50, 100) }
-            //         })
-            //     }
-            //     console.log(stage.numChildren)
-            // })
+                // put your code herez
+                // radius is 50, diameter is 100
+                let top
+                let mid
+                let bot
+                let count = 0
 
-            // rightMid.on('pressup', (e) => {
-            //     if (mid.hitTestCircles(e.target, -20) && stage.numChildren == 4) {
-            //         mid.removeFrom()
-            //         e.target.removeFrom()
-            //         stage.update()
-            //     } else {
-            //         e.target.animate({
-            //             props: { x: rand(550, 650), y: rand(300, 350) }
-            //         })
-            //     }
-            // })
-            // mid.on('pressup', (e) => {
-            //     if (rightMid.hitTestCircles(e.target, -20) && stage.numChildren == 4) {
-            //         rightMid.removeFrom()
-            //         e.target.removeFrom()
-            //         stage.update()
-            //     } else {
-            //         e.target.animate({
-            //             props: { x: rand(300, 400), y: rand(300, 350) }
-            //         })
-            //     }
-            // })
+                let rightTop
+                let rightMid
+                let rightBot
+                left('A', 'B', 'C')
+                function left(a, b, c) {
+                    top = new Circle(50, blue)
+                        .pos(rand(100, 200), rand(50, 100)).drag()
+                    new Label({
+                        text: a,
+                        color: white,
+                        size: 100
+                    }).center(top).mov(0, 20)
+                    mid = new Circle(50, green)
+                        .pos(rand(300, 400), rand(300, 350)).drag()
+                    new Label({
+                        text: b,
+                        color: white,
+                        size: 100
+                    }).center(mid).mov(0, 20)
+                    bot = new Circle(50, yellow)
+                        .pos(rand(100, 200), rand(500, 550)).drag()
+                    new Label({
+                        text: c,
+                        color: white,
+                        size: 100
+                    }).center(bot).mov(0, 20)
 
-            // rightBot.on('pressup', (e) => {
-            //     if (bot.hitTestCircles(e.target, -20) && stage.numChildren == 2) {
-            //         bot.removeFrom()
-            //         e.target.removeFrom()
-            //         stage.update()
-            //     } else {
-            //         e.target.animate({
-            //             props: { x: rand(650, 750), y: rand(500, 550) }
-            //         })
-            //     }
-            // })
-            // bot.on('pressup', (e) => {
-            //     if (rightBot.hitTestCircles(e.target, -20) && stage.numChildren == 2) {
-            //         rightBot.removeFrom()
-            //         e.target.removeFrom()
-            //         stage.update()
-            //         console.log(stage.numChildren)
-            //         left('D', 'E', 'F')
-            //     } else {
-            //         e.target.animate({
-            //             props: { x: rand(100, 200), y: rand(500, 550) }
-            //         })
-            //     }
-            // })
-            // if (stage.numChildren == 0) {
-            //     console.log(0)
-            // }
-            function switchLeft(count) {
-                switch (count) {
-                    case 3:
-                        left('D', 'E', 'F')
-                        right(rightTop, 'Dog', 'DragonFruit', 'Doll', 'd')
-                        right(rightMid, 'Elephant', 'ElderBerry', 'Egg', 'e')
-                        right(rightBot, 'Fox', 'Fig', 'FireWood', 'f')
-                        break
-                    case 6:
-                        left('G', 'H', 'I')
-                        right(rightTop, 'Giraffe', 'GrapeFruit', 'Gumballs', 'g')
-                        right(rightMid, 'Hippo', 'HoneyDew', 'Helicopter', 'h')
-                        right(rightBot, 'Iguana', 'IndianApple', 'IceCream', 'i')
-                        break
-                    case 9:
-                        left('J', 'K', 'L')
-                        right(rightTop, 'Jellyfish', 'Jujube', 'Jam', 'j')
-                        right(rightMid, 'Kangaroo', 'Kiwi', 'Keys', 'k')
-                        right(rightBot, 'Lion', 'Lemon', 'Leaves', 'l')
-                        break
-                    case 12:
-                        left('M', 'N', 'O')
-                        right(rightTop, 'Monkey', 'Mango', 'Mailbox', 'm')
-                        right(rightMid, 'Nightingale', 'Nectarine', 'Nest', 'n')
-                        right(rightBot, 'Owl', 'Orange', 'Onion', 'o')
-                        break
-                    case 15:
-                        left('P', 'Q', 'R')
-                        right(rightTop, 'Penguin', 'Pineapple', 'Pie', 'p')
-                        right(rightMid, 'Quail', 'Quince', 'Quiver', 'q')
-                        right(rightBot, 'Racoon', 'Raspberry', 'Robots', 'r')
-                        break
-                    case 18:
-                        left('S', 'T', 'U')
-                        right(rightTop, 'Seal', 'StrawBerry', 'Ship', 's')
-                        right(rightMid, 'Turtle', 'Tangerine', 'Teapot', 't')
-                        right(rightBot, 'Unicorn', 'UgliFruit', 'Umbrella', 'u')
-                        break
-                    case 21:
-                        left('V', 'W', 'X')
-                        right(rightTop, 'Vulture', 'Velvet', 'Van', 'v')
-                        right(rightMid, 'Whale', 'WaterMelon', 'Windmill', 'w')
-                        right(rightBot, 'X-RayFish', 'Ximania', 'Xylophone', 'x')
-                        break
-                    case 24:
-                        // left('V', 'W', 'X')
-                        top = new Circle(50, blue)
-                            .pos(rand(100, 200), rand(50, 100)).drag()
-                        new Label({
-                            text: 'Y',
-                            color: white
-                        }).center(top)
-                        mid = new Circle(50, green)
-                            .pos(rand(300, 400), rand(300, 350)).drag()
-                        new Label({
-                            text: 'Z',
-                            color: white
-                        }).center(mid)
-                        rightTop = new Circle(50, blue)
-                            .pos(rand(650, 750), rand(50, 100)).drag()
-                        rightMid = new Circle(50, green)
-                            .pos(rand(550, 650), rand(300, 350)).drag()
-                        pressHandler(rightTop, top, rand(650, 750), rand(50, 100), 4)
-                        pressHandler(top, rightTop, rand(100, 200), rand(50, 100), 4)
+                    rightContainers()
 
-                        pressHandler(rightMid, mid, rand(550, 650), rand(300, 350), 2)
-                        pressHandler(mid, rightMid, rand(300, 400), rand(300, 350), 2)
-                        right(rightTop, 'Yak', 'YoungBerry', 'Yarn', 'y')
-                        right(rightMid, 'Zebra', 'Zapote', 'Zipper', 'z')
+                    pressHandler(rightTop, top, rand(650, 750), rand(50, 100), 7)
+                    pressHandler(top, rightTop, rand(100, 200), rand(50, 100), 7)
 
-                        // right(rightTop, 'Vulture', 'Velvet', 'Van', 'v')
-                        // right(rightMid, 'Whale', 'WaterMelon', 'Windmill', 'w')
-                        // right(rightBot, 'X-RayFish', 'Ximania', 'Xylophone', 'x')
-                        break
-                    case 26:
-                        let pane; // this will be used for the ZIM Pane
-                        timeout(.5, () => {
+                    pressHandler(rightMid, mid, rand(550, 650), rand(300, 350), 5)
+                    pressHandler(mid, rightMid, rand(300, 400), rand(300, 350), 5)
 
-                            new Emitter(new Poly(100, [5, 6, 7], .5, [red, green, blue])).center()
-                            pane = new Pane(500, 200, "YOU WIN!", yellow).show()
-
-                            pane.on('closing', () => {
-                                zgo("index.html")
+                    pressHandler(rightBot, bot, rand(650, 750), rand(500, 550), 3)
+                    pressHandler(bot, rightBot, rand(100, 200), rand(500, 550), 3)
+                }
+                function rightContainers() {
+                    rightTop = new Circle(50, blue)
+                        .pos(rand(650, 750), rand(50, 100)).drag()
+                    rightMid = new Circle(50, green)
+                        .pos(rand(550, 650), rand(300, 350)).drag()
+                    rightBot = new Circle(50, yellow)
+                        .pos(rand(650, 750), rand(500, 550)).drag()
+                }
+                function pressHandler(container, target, x, y, children) {
+                    container.on('pressup', (e) => {
+                        if (target.hitTestCircles(e.target, -20) && stage.numChildren == children) {
+                            target.removeFrom()
+                            e.target.removeFrom()
+                            stage.update()
+                            // console.log(stage.numChildren)
+                            count++
+                            // console.log(count)
+                            switchLeft(count)
+                        } else {
+                            e.target.animate({
+                                props: { x: x, y: y }
                             })
-                        })
+                        }
+
+                    })
+
+
+                }
+                // function removeLeft() {
+                //     top.removeFrom()
+                //     mid.removeFrom()
+                //     bot.removeFrom()
+                // }
+                // function right(a, b, c) {
+
+                // }
+                function right(container, music1, music2, music3, letter) {
+                    container.on('pressdown', () => {
+                        asset(`${music1}.mp3`).play()
+                    })
+                    const A1 = asset(`A_${letter}.png`).sca(.6).center(container).setMask(container).animate({
+                        props: { alpha: 0 },
+                        time: 5,
+                        // loop: true,
+                        call: () => {
+                            container.removeAllEventListeners('pressdown')
+                            container.on('pressdown', () => {
+                                asset(`${music2}.mp3`).play()
+                            })
+                            const A2 = asset(`F_${letter}.png`).sca(.6).center(container).setMask(container).animate({
+                                props: { alpha: 0 },
+                                time: 5,
+                                call: () => {
+                                    const A3 = asset(`O_${letter}.png`).sca(.6).center(container).setMask(container)
+                                    container.removeAllEventListeners('pressdown')
+
+                                    container.on('pressdown', () => {
+                                        asset(`${music3}.mp3`).play()
+                                    })
+                                    // rightTop.removeFrom()
+                                }
+                            })
+                        }
+                    })
+                }
+                right(rightTop, 'Alligator', 'Apple', 'Airplane', 'a')
+                right(rightMid, 'Bee', 'Banana', 'Ball', 'b')
+                right(rightBot, 'Cat', 'Cherry', 'Chair', 'c')
+                // rightTop.on('pressup', (e) => {
+                //     if (top.hitTestCircles(e.target, -20) && stage.numChildren == 6) {
+                //         top.removeFrom()
+                //         e.target.removeFrom()
+                //         stage.update()
+                //     } else {
+                //         e.target.animate({
+                //             props: { x: rand(650, 750), y: rand(50, 100) }
+                //         })
+                //     }
+                //     console.log(stage.numChildren)
+                // })
+                // top.on('pressup', (e) => {
+                //     if (rightTop.hitTestCircles(e.target, -20) && stage.numChildren == 6) {
+                //         rightTop.removeFrom()
+                //         e.target.removeFrom()
+                //         stage.update()
+                //     } else {
+                //         e.target.animate({
+                //             props: { x: rand(100, 200), y: rand(50, 100) }
+                //         })
+                //     }
+                //     console.log(stage.numChildren)
+                // })
+
+                // rightMid.on('pressup', (e) => {
+                //     if (mid.hitTestCircles(e.target, -20) && stage.numChildren == 4) {
+                //         mid.removeFrom()
+                //         e.target.removeFrom()
+                //         stage.update()
+                //     } else {
+                //         e.target.animate({
+                //             props: { x: rand(550, 650), y: rand(300, 350) }
+                //         })
+                //     }
+                // })
+                // mid.on('pressup', (e) => {
+                //     if (rightMid.hitTestCircles(e.target, -20) && stage.numChildren == 4) {
+                //         rightMid.removeFrom()
+                //         e.target.removeFrom()
+                //         stage.update()
+                //     } else {
+                //         e.target.animate({
+                //             props: { x: rand(300, 400), y: rand(300, 350) }
+                //         })
+                //     }
+                // })
+
+                // rightBot.on('pressup', (e) => {
+                //     if (bot.hitTestCircles(e.target, -20) && stage.numChildren == 2) {
+                //         bot.removeFrom()
+                //         e.target.removeFrom()
+                //         stage.update()
+                //     } else {
+                //         e.target.animate({
+                //             props: { x: rand(650, 750), y: rand(500, 550) }
+                //         })
+                //     }
+                // })
+                // bot.on('pressup', (e) => {
+                //     if (rightBot.hitTestCircles(e.target, -20) && stage.numChildren == 2) {
+                //         rightBot.removeFrom()
+                //         e.target.removeFrom()
+                //         stage.update()
+                //         console.log(stage.numChildren)
+                //         left('D', 'E', 'F')
+                //     } else {
+                //         e.target.animate({
+                //             props: { x: rand(100, 200), y: rand(500, 550) }
+                //         })
+                //     }
+                // })
+                // if (stage.numChildren == 0) {
+                //     console.log(0)
+                // }
+                function switchLeft(count) {
+                    switch (count) {
+                        case 3:
+                            left('D', 'E', 'F')
+                            right(rightTop, 'Dog', 'DragonFruit', 'Doll', 'd')
+                            right(rightMid, 'Elephant', 'ElderBerry', 'Egg', 'e')
+                            right(rightBot, 'Fox', 'Fig', 'FireWood', 'f')
+                            break
+                        case 6:
+                            left('G', 'H', 'I')
+                            right(rightTop, 'Giraffe', 'GrapeFruit', 'Gumballs', 'g')
+                            right(rightMid, 'Hippo', 'HoneyDew', 'Helicopter', 'h')
+                            right(rightBot, 'Iguana', 'IndianApple', 'IceCream', 'i')
+                            break
+                        case 9:
+                            left('J', 'K', 'L')
+                            right(rightTop, 'Jellyfish', 'Jujube', 'Jam', 'j')
+                            right(rightMid, 'Kangaroo', 'Kiwi', 'Keys', 'k')
+                            right(rightBot, 'Lion', 'Lemon', 'Leaves', 'l')
+                            break
+                        case 12:
+                            left('M', 'N', 'O')
+                            right(rightTop, 'Monkey', 'Mango', 'Mailbox', 'm')
+                            right(rightMid, 'Nightingale', 'Nectarine', 'Nest', 'n')
+                            right(rightBot, 'Owl', 'Orange', 'Onion', 'o')
+                            break
+                        case 15:
+                            left('P', 'Q', 'R')
+                            right(rightTop, 'Penguin', 'Pineapple', 'Pie', 'p')
+                            right(rightMid, 'Quail', 'Quince', 'Quiver', 'q')
+                            right(rightBot, 'Racoon', 'Raspberry', 'Robots', 'r')
+                            break
+                        case 18:
+                            left('S', 'T', 'U')
+                            right(rightTop, 'Seal', 'StrawBerry', 'Ship', 's')
+                            right(rightMid, 'Turtle', 'Tangerine', 'Teapot', 't')
+                            right(rightBot, 'Unicorn', 'UgliFruit', 'Umbrella', 'u')
+                            break
+                        case 21:
+                            left('V', 'W', 'X')
+                            right(rightTop, 'Vulture', 'Velvet', 'Van', 'v')
+                            right(rightMid, 'Whale', 'WaterMelon', 'Windmill', 'w')
+                            right(rightBot, 'X-RayFish', 'Ximania', 'Xylophone', 'x')
+                            break
+                        case 24:
+                            // left('V', 'W', 'X')
+                            top = new Circle(50, blue)
+                                .pos(rand(100, 200), rand(50, 100)).drag()
+                            new Label({
+                                text: 'Y',
+                                color: white,
+                                size: 100
+                            }).center(top).mov(0, 20)
+                            mid = new Circle(50, green)
+                                .pos(rand(300, 400), rand(300, 350)).drag()
+                            new Label({
+                                text: 'Z',
+                                color: white,
+                                size: 100
+                            }).center(mid).mov(0, 20)
+                            rightTop = new Circle(50, blue)
+                                .pos(rand(650, 750), rand(50, 100)).drag()
+                            rightMid = new Circle(50, green)
+                                .pos(rand(550, 650), rand(300, 350)).drag()
+                            pressHandler(rightTop, top, rand(650, 750), rand(50, 100), 5)
+                            pressHandler(top, rightTop, rand(100, 200), rand(50, 100), 5)
+
+                            pressHandler(rightMid, mid, rand(550, 650), rand(300, 350), 3)
+                            pressHandler(mid, rightMid, rand(300, 400), rand(300, 350), 3)
+                            right(rightTop, 'Yak', 'YoungBerry', 'Yarn', 'y')
+                            right(rightMid, 'Zebra', 'Zapote', 'Zipper', 'z')
+
+                            // right(rightTop, 'Vulture', 'Velvet', 'Van', 'v')
+                            // right(rightMid, 'Whale', 'WaterMelon', 'Windmill', 'w')
+                            // right(rightBot, 'X-RayFish', 'Ximania', 'Xylophone', 'x')
+                            break
+                        case 26:
+                            let pane; // this will be used for the ZIM Pane
+                            timeout(.5, () => {
+
+                                new Emitter(new Poly(100, [5, 6, 7], .5, [red, green, blue])).center()
+                                pane = new Pane(500, 200, "YOU WIN!", yellow).show()
+
+                                pane.on('closing', () => {
+                                    zgo("index.html")
+                                })
+                            })
+                    }
                 }
             }
-        }
 
             stage.update(); // needed to view changes
         });
